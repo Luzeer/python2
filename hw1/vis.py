@@ -1,7 +1,7 @@
 import random
 
 def theme_choice():
-    choice = input('Нужно выбрать тему.\nТема 1: \nТема 2:  \nТема 3: \nВведите номер: ')
+    choice = input('Нужно выбрать тему.\nТема 1: "Еда в голодные будни" \nТема 2: "В мире животных" \nТема 3: "Сектор-приз: для самых умных"\nВведите номер: ')
     if choice == '1':
         file = '1.txt'
     elif choice == '2':
@@ -43,8 +43,10 @@ def guess_letter (new_word, word):
                 print('Осталось ', life, ' попытки')
             else:
                 print('Осталось ', life, ' попыток')
+    print ('Увы!!! Человечек не спасен')
                                    
 def main():
+    print('Сыграем? Это "Виселица". Правила знакомы всем. Поехали!')
     word = open_file()
     print('Проверка', word) 
     new_word = work_new_word(word)
