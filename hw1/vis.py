@@ -20,19 +20,23 @@ def open_file():
 
 
 def work_new_word(word):
-    new_word = '_ ' * (len(word))
-    print (' '.join(new_word))
+    new_word = []
+    for i in range(len(word)):
+        new_word.append('_')
+    for i in range(len(new_word)):
+        print(new_word[i], end=' ')
+    print()
     return new_word
 
 
 def guess_letter (new_word, word):
     life = len(word)
-    while life >= 0:
+    while life >= 0 and ''.join(new_word) != word:
         letter = input('Предположите, какая тут буковка может быть: ').lower()
         if letter in word:
-            for i in range (len(word)):
+            for i in range(len(word)):
                 if letter == word[i]:
-                    new_word = new_word.replace(new_word[1], letter)       
+                    new_word[i] = letter
             print('Получилось, играем дальше...',' '.join(new_word))
         else:
             print ('Упс, если бы тут был человечек, он стал бы на шаг ближе к смерти(((')
@@ -43,6 +47,9 @@ def guess_letter (new_word, word):
                 print('Осталось ', life, ' попытки')
             else:
                 print('Осталось ', life, ' попыток')
+    if (''.join(new_word) == word):
+        print('You Win!')
+        return new_word
     print ('Увы!!! Человечек не спасен')
                                    
 def main():
@@ -50,6 +57,6 @@ def main():
     word = open_file()
     print('Проверка', word) 
     new_word = work_new_word(word)
-    letter = guess_letter(new_word, word)
+    new_word = guess_letter(new_word, word)
 
 main()
