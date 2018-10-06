@@ -78,19 +78,24 @@ def get_followers(user_list, token):
     return user
 
 def main():
+    user_list = ['elmiram', 'maryszmary', 'lizaku', 'nevmenandr', 'ancatmara', 'roctbb', 'akutuzov', 'agricolamz', 'lehkost', 'kylepjohnson', 'mikekestemont', 'demidovakatya', 'shwars', 'JelteF', 'timgraham', 'arogozhnikov', 'jasny', 'bcongdon', 'whyisjake', 'gvanrossum']
+    
+    print('Enter your github token')
+    token = input()
+    
     profile = choose_user(user_list)
     print('\nВы выбрали пользователя', profile)
 
-    print_repos(get_repos(profile, '130ec820a0c84b277b2d9e3b3becb13cdb5df9e1'))  # 1
+    print_repos(get_repos(profile, token))  # 1
 
     print('\nЯзыки в репозиториях пользователя', profile, '\n',
-          count_lang(profile, '130ec820a0c84b277b2d9e3b3becb13cdb5df9e1'))  # 2
+          count_lang(profile, token))  # 2
 
     print('\n Больше всего репозиториев из списка у пользователя',
-          get_biggest(user_list, '130ec820a0c84b277b2d9e3b3becb13cdb5df9e1')[0])  # 3
+          get_biggest(user_list, token)[0])  # 3
 
     print('\n Самый популярный язык среди пользователей это',
-          get_popular_lang(user_list, '130ec820a0c84b277b2d9e3b3becb13cdb5df9e1'))  # 4
+          get_popular_lang(user_list, token))  # 4
 
     print('\n Больше всего подписчиков у пользователя',
-          get_followers(user_list, '130ec820a0c84b277b2d9e3b3becb13cdb5df9e1'))  # 5
+          get_followers(user_list, token))  # 5
